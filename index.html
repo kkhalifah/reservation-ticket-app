@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>RSVP</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+        <!-- Our CSS -->
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body ng-app="rsvpApp" ng-controller = "reserveController">
+        <div class="topSection">
+
+        <form class="" >
+
+        <h2>Please fill out the form to RSVP</h2>
+        <h3 class="nm">Your Name:</h3>
+        <h3 class="tx"># of Guests</h3> <br>
+
+        <input class="one" type="text" name="name" ng-model="name" >
+        <input class="two" type="number" name="number" ng-model="numGuests">
+        <!-- name, you are sending a reservation for X tickets -->
+          <br>   <p class="para">{{name}}, you are sending a reservation for {{numGuests +1}} </p>
+         <button class="sbt" type="submit" name="submit" ng-click = "guestList(name , numGuests)">RSVP!</button>
+           </form>
+          </div>
+           <div class="guestListBottom">
+             <h2>Guest List:</h2>
+                <p class="list" ng-repeat="listOfGuest in listOfGuests track by $index">{{listOfGuest | uppercase}} </p>
+                  <!-- has reverved {{numGuests}} -->
+           </div>
+
+
+        <!-- Invlude Angular and UI.Bootstrap -->
+        <script src="lib/angular.min.js" charset="utf-8"></script>
+        <script src="lib/ui-bootstrap-tpls-2.5.0.min.js" charset="utf-8"></script>
+        <!-- Our Scripts -->
+        <script src="js/app.js" charset="utf-8"></script>
+    </body>
+</html>
